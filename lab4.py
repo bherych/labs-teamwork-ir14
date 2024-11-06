@@ -8,37 +8,34 @@ class Student:
     def get_name(self):
         return self.__name
     
+    def set_name(self, name):
+        self.__name = name
+
     def get_rating(self):
         return self.__rating
+    
+    def set_rating(self, rating):
+        self.__rating = rating    
     
     def get_height(self):
         return self.__height
     
-    def set_name(self, name):
-        self.__name = name
-    
-    def set_rating(self, rating):
-        self.__rating = rating
-    
     def set_height(self, height):
         self.__height = height
     
-    def __str__(self):
-        return f"Student: {self.__name}, Rating: {self.__rating}, Height: {self.__height}"
-    
     def __repr__(self):
-        return f"Student({self.__name}, {self.__rating}, {self.__height})"
+        return f"Student('{self.__name}', '{self.__rating}', '{self.__height}')"
     
     def __del__(self):
-        print(f"Deleting student {self.__name}")
+        print(f"Deleting student '{self.__name}'")
 
     def __str__(self):
-        return f"Student: {self.__name}, Rating: {self.__rating}, Height: {self.__height}"
+        return f"Student: '{self.__name}', Rating: '{self.__rating}', Height: '{self.__height}'"
 
 def remove_low_rated_students(students):
     return [student for student in students if student.get_rating() >= 50]
 
-if __name__ == "__main__":
+def main():
     students = [
         Student("Іван Іванов", 85, 180),
         Student("Петро Петренко", 45, 175),
@@ -59,3 +56,6 @@ if __name__ == "__main__":
     print("\nПісля видалення:")
     for student in students:
         print(student)
+
+if __name__ == "__main__":
+    main()
